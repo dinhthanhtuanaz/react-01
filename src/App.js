@@ -6,6 +6,7 @@ import PostList from './components/PostList';
 import Pagination from './components/Pagination';
 import queryString from 'query-string';
 import PostFiltersForm from './components/PostFiltersForm';
+import Clock from './components/Clock';
 function App() {
   //useState
   const [todos, setTodos] = useState([
@@ -25,7 +26,7 @@ function App() {
     _page: 1,
     title_like: ''
   });
-
+  const [showClock, setShowClock] = useState(true);
   //useEffect
   useEffect(() => {
     console.log('222');
@@ -97,6 +98,9 @@ function App() {
         pagination={pagination}
         onPageChange={handlePageChange}
       />
+
+      {showClock && <Clock />}
+      <button onClick={() => setShowClock(!showClock)}>Hide click</button>
     </div>
   );
 }
